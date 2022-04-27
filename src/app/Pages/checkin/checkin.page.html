@@ -1,0 +1,16 @@
+
+<body style="overflow: auto">
+<h1>Bienvenido al evento:</h1>
+<h2>{{this.event.title}}</h2>
+
+<img [src]="this.event.url" class="imagen" >
+
+<form>
+      
+  <input [(ngModel)]="name" name="name" type="text" class="feedback-input" placeholder="Nombre" required>   
+  <input [(ngModel)]="apellidos" name="name" type="text" class="feedback-input" placeholder="Apellidos" required>   
+  <input [(ngModel)]="email" name="email" type="text" class="feedback-input" placeholder="Email" required>
+  <input type="submit" value="SUBMIT" (click)="submit()"/>
+</form>
+
+</body>

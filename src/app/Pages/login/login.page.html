@@ -1,0 +1,37 @@
+<ion-header class="unsetAll" *ngIf="headerVisible" translucent="true">
+  <ion-toolbar>
+    <ion-title>{{PageName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  
+  <div class="homeScreen" collapse="condense">
+    <!--Image-->
+    <div class="displayFlexCol">
+     
+      <div class="imgLabel">
+        <h1 class="elcome">Do you want to start a new trip?</h1>
+        <h1 class="description">
+          What would you like to do?</h1>
+       </div>
+     </div>
+     
+ </div>
+
+ <div style="margin-right: 50%; margin-top:10%" class = "right">
+  <ion-icon *ngIf = "!volumeON" class = "voice" slot="icon-only" name="volume-mute-outline" size="large" (click) ="turnVolumeOn()"></ion-icon>
+  <ion-icon *ngIf = "volumeON" class = "voice" slot="icon-only" name="volume-high-outline" size="large" (click) ="turnVolumeOff()"></ion-icon>
+</div>
+
+
+  <div style="margin-right: 50%; margin-top:20%" class = "right">
+    <div>
+      <ion-icon *ngIf = "serviceON" class = "animation" (click)="changeStatus()" slot="icon-only" name="mic-outline" size="large" color= red></ion-icon>
+      <ion-icon *ngIf = "!serviceON" class = "mic" (click)="changeStatus()" slot="icon-only" name="mic-outline" size="large" color= red></ion-icon>
+    </div>
+    
+</div>
+
+
+</ion-content>

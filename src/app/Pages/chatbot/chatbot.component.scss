@@ -1,0 +1,79 @@
+@import "../../../theme/Inputs_Theme.scss";
+@import "../../../theme/ColorTheme.scss";
+@import "../../../theme/FontsTheme.scss";
+@import url('https://fonts.googleapis.com/css?family=DM Sans');
+
+.chatbot{
+    position:fixed;
+    margin-top: 25px;
+    margin-left: 25px;
+    background-color: #9bc27c;
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 2vw;
+
+}
+.scroll-content {
+    overflow-y: hidden;
+}
+
+
+
+.row{
+    width: 50vw;
+    height: 88%;
+    overflow: auto;
+
+}
+.inputText{
+    background-color: white;
+    position: sticky;
+    width: 80%;
+    height: 10%;
+    margin-left: 10%;
+    border: 1px solid black;
+    border-radius: 1vw;
+    font-family: 'DM Sans';
+
+}
+
+
+
+.userMsg{
+    margin-left: 40%;
+}
+
+.botMsg{
+    margin-left: 2.5%;
+}
+
+.msg{
+    width: 55%;
+    border: 0px solid black;
+    border-radius: 1vw;
+    background-color:  white;
+    color: black;
+
+    padding: 5px;
+    font-family: 'DM Sans';
+    font-size: 1em;
+}
+
+.chatIcon{
+    align-content: center;
+    padding: 12.5px;
+    text-align: center;
+    color: white;
+}
+
+
+.circle{
+    background: $color-primary; // linear-gradient(to right, $color-primary, #9bc27c);
+    height: 40px;
+    opacity: 0.8;
+    border-radius:50%;
+    width:40px;        
+    position: fixed;
+
+}

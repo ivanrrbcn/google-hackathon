@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "user": "pau",
+            "products": ["Plátano","Melocotón","Huevos","Aguacate"],
+            "Inventory": [1, 5, 2, 4]
+        },
+        {
+            "user": "pere",
+            "products": ["Perejíl","Sandía","Huevos","Aguacate"],
+            "Inventory": [1, 2, 6, 4]
+        },
+        {
+            "user": "josep",
+            "products": ["Fresa","Mantequilla","Huevos","Pepino"],
+            "Inventory": [6, 1, 6, 5]
+        }
+    ]
+}

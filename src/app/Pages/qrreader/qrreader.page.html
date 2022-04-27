@@ -1,0 +1,18 @@
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+<ion-content>
+    <div class="row">
+        <h3 class="qr-title">
+            Acerque el código QR
+        </h3>
+        <div class="kt-portlet__body">
+            <zxing-scanner #scanner (scanSuccess)="scanSuccessHandler($event)">
+            </zxing-scanner>
+            
+        </div>
+    </div>
+
+</ion-content>

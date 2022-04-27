@@ -1,0 +1,18 @@
+<div class = "circle">
+  <ion-icon class = "chatIcon" (click) = "this.show = !this.show" name="chatbox" size = "medium"></ion-icon> 
+</div>
+
+<div class = "chatbot" *ngIf="this.show">
+  <div class = "row" #scrollMe >
+    <div *ngFor = "let msg of this.bot.messages"> 
+      <p class = "msg userMsg" *ngIf="msg.sender=='User'">
+        {{msg.content}}
+      </p>
+      <p class = "msg botMsg" *ngIf="msg.sender=='Bot'">
+        {{msg.content}}
+      </p>
+    </div>
+  </div>
+  <input class ="inputText" id="inputText" [(ngModel)]="inputText" type="text" (keydown.enter)="sendMessageBot()"> 
+
+</div>

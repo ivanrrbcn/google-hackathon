@@ -1,0 +1,83 @@
+<app-header pageName="Tramitar el pedido" backUrl="/tabs/Cart"></app-header>
+
+<ion-content class="ion-padding">
+
+  <!-- <ion-label class="header-M">Centro de recogida:</ion-label>
+  <input type="text" style="width:100%" class="input_with_placeholder" placeholder="Avinguda Parallel 120 1 1 Barcelona">
+   -->
+
+   <ion-label class="header-M">Opciones de entrega:</ion-label>
+   <ion-select  [ngClass]="bordes" [(ngModel)]="Entrega" okText="Okay" cancelText="Cancel" class="input_without_placeholder" (ionChange)="CambioEntrega(Entrega)">
+     <ion-select-option value="Recibir en casa">Recibir en casa</ion-select-option>
+     <ion-select-option value="Recoger en tienda">Recoger en tienda</ion-select-option>
+   </ion-select>
+
+   <div *ngIf="!this.recogidaCasa">
+    <ion-label class="header-M">Centro de recogida:</ion-label>
+    <ion-select [ngClass]="bordes" [(ngModel)]="SelectedDeliveryLocId" class="input_without_placeholder">
+      <ion-select-option *ngFor="let location of DeliveryLocations; index as i " [value]="i">
+        {{location.street}},{{location.city}}, {{location.postal}}
+      </ion-select-option>
+    </ion-select>
+  
+    <ion-label class="header-M">Tipo de recogida:</ion-label>
+    <ion-select  [ngClass]="bordes" [(ngModel)]="Servicio" okText="Okay" cancelText="Cancel" class="input_without_placeholder" (ionChange)="CambioParking(Servicio)">
+      <ion-select-option value="Parking">Parking</ion-select-option>
+      <ion-select-option value="Click">Click & Collect</ion-select-option>
+    </ion-select>
+  
+
+    <ion-label class="header-M">Hora de recogida:</ion-label>
+    <ion-select [interfaceOptions]="PopoverOptions"  interface="popover" [ngClass]="bordes" [(ngModel)]="SelectedDeliveryHourId"  class="input_without_placeholder">
+      <ion-select-option *ngFor="let time of DeliveryHours; index as i" [value]="i">
+        {{time.mintime}} - {{time.maxtime}}
+      </ion-select-option>
+    </ion-select>
+  
+   </div>
+  
+   <div *ngIf="this.recogidaCasa">
+
+    <ion-label class="header-M">Dirección de entrega:</ion-label>
+      <ion-item  class="borde_text">
+        <ion-input type="text" [(ngModel)]="this.address" text-right id="input" (ionChange)="showAddress()" >
+        </ion-input>
+
+         <ion-icon (click)="geolocalization()" name="map-outline">slot="icon-only"</ion-icon>  
+      </ion-item>
+
+
+      <div *ngIf="!this.geo">
+        <div *ngIf="!this.addressSelected">
+          <div *ngFor="let direccion of list_adresses" (click)="selectAddress(direccion)" value="brown">
+            <div class = "direcciones" >{{direccion["formatted"]}}{{direccion["description"]}}</div>
+        </div>
+        </div>
+      </div>
+
+      <div *ngIf="this.geo">
+        <div *ngIf="!this.addressSelected">
+          <div *ngFor="let direccion of list_adresses" (click)="selectAddress2(direccion)" value="brown">
+            <div class = "direcciones" >{{direccion["formatted"]}}{{direccion["formatted_address"]}}</div>
+        </div>
+        </div>
+      </div>
+
+      
+
+
+
+    <ion-label class="header-L">Hora de entrega:</ion-label>
+    <ion-select [interfaceOptions]="PopoverOptions"  interface="popover" [ngClass]="bordes" [(ngModel)]="SelectedDeliveryHourId"  class="input_without_placeholder">
+      <ion-select-option *ngFor="let time of DeliveryHours; index as i" [value]="i">
+        {{time.mintime}} - {{time.maxtime}}
+      </ion-select-option>
+    </ion-select>
+
+   </div>
+   <p></p>
+  <div class="displayFlex">
+    <button (click)="clickBtnContinuar()" slot="end" [ngClass]="button_trami_reco" >Continuar</button>
+  </div>
+
+</ion-content>
